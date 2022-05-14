@@ -38,7 +38,7 @@ func Calculate(T float64, H float64) (float64, error) {
 			// Magnus Formel
 			// Magnus formula
 			dd := math.Log10(math.Pow(10, ( a * T) / ( b + T)) * (H/100))
-			return (b*dd)/(a-dd), nil
+			return math.Round(((b*dd)/(a-dd))*100)/100, nil
 		}
 	}
 }
