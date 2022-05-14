@@ -1,5 +1,6 @@
 # go-pkg
 ![Go](https://github.com/de-wax/go-pkg/workflows/Go/badge.svg?branch=master)
+![CodeQL](https://github.com/de-wax/go-pkg/workflows/CodeQL/badge.svg)
 
 ## German
 Meine selbstgeschriebenen go Pakete, für die Nutzung in meinen oder in euren Projekten.  
