@@ -10,6 +10,7 @@ package dewpoint
 import (
 	// Ein paar Standard-Pakete werden benötigt
 	// A few standard packages are required
+	//"fmt"
 	"errors"
 	"math"	
 )
@@ -26,12 +27,18 @@ func Calculate(T float64, H float64) (float64, error) {
 		} else {
 			// Konstanten für die Magnus Formel
 			// Constants for the Magnus formula
-			const a float64 = 17.62
-			const b float64 = 243.12
+			var a,b float64 = 0,0
+			if T > 0 {
+				a = 7.5
+				b = 237.3
+			} else {
+				a = 7.6
+				b = 240.7
+			}
 			// Magnus Formel
 			// Magnus formula
-			alpha := math.Log(H/100) + a*T/(b+T)
-			return math.Round(((b*alpha)/(a-alpha))*100) / 100, nil
+			dd := math.Log10(math.Pow(10, ( a * T) / ( b + T)) * (H/100))
+			return (b*dd)/(a-dd), nil
 		}
 	}
 }
